@@ -3,751 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCS Climatização | Refrigeração & Climatização Profissional</title>
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>MCS Climatização - Especialistas em Ar-Condicionado</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animações AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Fonte Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- VARIÁVEIS DE DESIGN PREMIUM --- */
-        :root {
-            --bg-dark: #070F1E;
-            --bg-card: #0F1C2E;
-            --primary-blue: #0A66C2;
-            --accent-cyan: #00F0FF;
-            --accent-gradient: linear-gradient(135deg, #00F0FF 0%, #0A66C2 100%);
-            --whatsapp: #25D366;
-            --whatsapp-dark: #1EBE5D;
-            --text-main: #F1F5F9;
-            --text-muted: #94A3B8;
-            --border-glow: rgba(0, 240, 255, 0.15);
-            --radius-lg: 16px;
-            --radius-md: 10px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth;
-        }
-
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
         }
-
-        /* --- TOP BAR DE ATENDIMENTO --- */
-        .top-bar {
-            background: rgba(10, 102, 194, 0.15);
-            border-bottom: 1px solid var(--border-glow);
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
-            color: var(--accent-cyan);
-            text-align: center;
-            font-weight: 500;
+        .aos-animate {
+            transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
         }
-
-        /* --- HEADER COM GLASSMORPHISM --- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(7, 15, 30, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.5rem;
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .brand-icon {
-            width: 42px;
-            height: 42px;
-            background: var(--accent-gradient);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: #000;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-        }
-
-        .brand-text h1 {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--text-main);
-            letter-spacing: -0.5px;
-            line-height: 1;
-        }
-
-        .brand-text span {
-            color: var(--accent-cyan);
-        }
-
-        .brand-text p {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .btn-header-wa {
-            background-color: var(--whatsapp);
-            color: #fff;
-            padding: 0.65rem 1.3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
-        }
-
-        .btn-header-wa:hover {
-            background-color: var(--whatsapp-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            padding: 5rem 1.5rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid var(--border-glow);
-            color: var(--accent-cyan);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 1.2rem;
-            letter-spacing: -1px;
-        }
-
-        .hero-title span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-hero-primary {
-            background: var(--whatsapp);
-            color: #fff;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
-        }
-
-        .btn-hero-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.35);
-        }
-
-        .hero-card-preview {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glow);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        .nav-link {
             position: relative;
+            display: inline-block;
+            padding: 0.5rem 0;
         }
-
-        .hero-card-preview::before {
+        .nav-link::after {
             content: '';
             position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: var(--accent-gradient);
-            border-radius: calc(var(--radius-lg) + 2px);
-            z-index: -1;
-            opacity: 0.3;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
         }
-
-        .preview-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
+        .nav-link:hover::after {
+            width: 100%;
         }
-
-        .preview-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 600;
-        }
-
-        .preview-item i {
-            color: var(--accent-cyan);
-            background: rgba(0, 240, 255, 0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* --- NUMERADORES DE IMPACTO --- */
-        .stats-bar {
-            background: var(--bg-card);
-            border-y: 1px solid var(--border-glow);
-            padding: 2.5rem 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--accent-cyan);
-            margin-bottom: 0.2rem;
-        }
-
-        .stat-item p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* --- SEÇÃO SERVIÇOS --- */
-        .services {
-            padding: 5rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 0.8rem;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.8rem;
-        }
-
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 2.2rem 1.5rem;
-            border-radius: var(--radius-lg);
+        .cta-button {
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .service-icon {
-            font-size: 2rem;
-            color: var(--accent-cyan);
-            margin-bottom: 1.2rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        .service-card p {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-        }
-
-        /* --- PASSO A PASSO --- */
-        .process-section {
-            background: rgba(15, 28, 46, 0.5);
-            padding: 5rem 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .process-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .process-step {
-            position: relative;
-            background: var(--bg-dark);
-            padding: 2rem 1.5rem;
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .step-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: rgba(0, 240, 255, 0.2);
+        .cta-button::before {
+            content: '';
             position: absolute;
-            top: 10px;
-            right: 15px;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
         }
-
-        .process-step h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--accent-cyan);
-        }
-
-        .process-step p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-
-        /* --- FAQ ACCORDION --- */
-        .faq-section {
-            padding: 5rem 1.5rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius-md);
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.2rem 1.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s;
-        }
-
-        .faq-question:hover {
-            color: var(--accent-cyan);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            padding: 0 1.5rem;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            padding: 0 1.5rem 1.2rem 1.5rem;
-        }
-
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-            color: var(--accent-cyan);
-        }
-
-        /* --- CTA BANNER --- */
-        .cta-box {
-            max-width: 1200px;
-            margin: 2rem auto 5rem;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, rgba(10, 102, 194, 0.3) 0%, rgba(7, 15, 30, 0.9) 100%);
-            border: 1px solid var(--border-glow);
-            border-radius: var(--radius-lg);
-            text-align: center;
-            position: relative;
-        }
-
-        .cta-box h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .cta-box p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: #040810;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 3rem 1.5rem 2rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.88rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        /* --- BOTÃO WHATSAPP FLUTUANTE ANIMADO --- */
-        .wa-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 62px;
-            height: 62px;
-            background-color: var(--whatsapp);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            z-index: 9999;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            animation: pulse-wa 2s infinite;
-        }
-
-        @keyframes pulse-wa {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        .wa-float:hover {
-            transform: scale(1.1);
-        }
-
-        /* --- RESPONSIVIDADE --- */
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            .hero-ctas {
-                justify-content: center;
-            }
-            .brand-text p {
-                display: none;
-            }
+        .cta-button:hover::before {
+            left: 100%;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <i class="fa-solid fa-bolt"></i> Atendimento Rápido via WhatsApp | Recife e Região Metropolitana
-    </div>
+    <!-- Header / Navegação -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center" data-aos="fade-right" data-aos-duration="1000">
+                <!-- Logo -->
+                <img src="logo.png" alt="Logo MCS Climatização" class="h-10 object-contain">
+            </div>
 
-    <!-- HEADER -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="brand-logo">
-                <div class="brand-icon">
-                    <i class="fa-solid fa-snowflake"></i>
-                </div>
-                <div class="brand-text">
-                    <h1>MCS <span>CLIMATIZAÇÃO</span></h1>
-                    <p>Maércio Cássio - Refrigeração Profissional</p>
-                </div>
+            <!-- Menu Mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Menu Desktop -->
+            <nav id="desktop-nav" class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-blue-600 hover:text-blue-800 font-medium">Início</a>
+                <a href="#servicos" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Serviços</a>
+                <a href="#sobre" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Sobre</a>
+                <a href="#contato" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Contato</a>
+            </nav>
+
+             <!-- CTA Destacado -->
+            <a href="#contato" class="hidden md:block cta-button bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+                Fale Conosco
             </a>
         </div>
-    </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div>
-            <div class="hero-tag">
-                <i class="fa-solid fa-shield-halved"></i> TÉCNICO ESPECIALIZADO E CERTIFICADO
-            </div>
-            <h1 class="hero-title">Eficiência, Ar Puro e <span>Conforto Térmico</span> Para Seu Ambiente</h1>
-            <p class="hero-subtitle">Instalação, higienização e manutenção preventiva ou corretiva de condicionadores de ar de todas as capacidades e marcas.</p>
-            <div class="hero-ctas">
-                <a href="https://wa.me/5581984183865?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20t%C3%A9cnica." class="btn-hero-primary" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento Agora
+        <!-- Menu Mobile (Escondido por padrão) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white py-4 px-4 border-t">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-blue-600 hover:text-blue-800 font-medium block">Início</a>
+                <a href="#servicos" class="text-gray-600 hover:text-blue-600 font-medium block">Serviços</a>
+                <a href="#sobre" class="text-gray-600 hover:text-blue-600 font-medium block">Sobre</a>
+                <a href="#contato" class="text-gray-600 hover:text-blue-600 font-medium block">Contato</a>
+                 <a href="#contato" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg text-center transition duration-300 mt-2">
+                    Fale Conosco
                 </a>
             </div>
         </div>
+    </header>
 
-        <div class="hero-card-preview">
-            <ul class="preview-list">
-                <li class="preview-item">
-                    <i class="fa-solid fa-check"></i>
-                    <span>Atendimento Residencial e Comercial</span>
-                </li>
-                <li class="preview-item">
-                    <i class="fa-solid fa-check"></i>
-                    <span>Higienização Química com Bactericida</span>
-                </li>
-                <li class="preview-item">
-                    <i class="fa-solid fa-check"></i>
-                    <span>Diagnóstico Técnico Preciso</span>
-                </li>
-                <li class="preview-item">
-                    <i class="fa-solid fa-check"></i>
-                    <span>Garantia em Todos os Serviços</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- STATS BAR -->
-    <div class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item">
-                <h3>100%</h3>
-                <p>Satisfação Garantida</p>
+    <!-- Seção Hero -->
+    <section id="home" class="pt-32 pb-28 bg-gradient-to-r from-blue-50 to-cyan-50">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
+                    Soluções Profissionais em <span class="text-blue-600">Refrigeração e Climatização</span>
+                </h1>
+                <p class="mt-4 text-lg text-gray-600 max-w-lg">
+                    Especializados em instalação, manutenção, higienização e infraestrutura de ar-condicionado. Garantimos conforto e eficiência para residências e empresas.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                    <a href="#contato" class="cta-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-center transition duration-300 shadow-md">
+                        Solicite um Orçamento
+                    </a>
+                    <a href="#servicos" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-3 px-8 rounded-lg text-center transition duration-300">
+                        Nossos Serviços
+                    </a>
+                </div>
             </div>
-            <div class="stat-item">
-                <h3>Todas</h3>
-                <p>Marcas e Capacidades</p>
-            </div>
-            <div class="stat-item">
-                <h3>Agilidade</h3>
-                <p>Atendimento Rápido</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SERVIÇOS -->
-    <section class="services">
-        <div class="section-header">
-            <h2>Nossos Serviços Especializados</h2>
-            <p>Manutenção e cuidados completos para prolongar a vida útil do seu equipamento e economizar energia.</p>
-        </div>
-
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-                <h3>Higienização Completa</h3>
-                <p>Limpeza profunda do evaporador, condensador e filtros com produtos aprovados pela Anvisa contra ácaros e bactérias.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                <h3>Instalação Padronizada</h3>
-                <p>Instalação de equipamentos Split com tubulação e procedimentos que mantêm a garantia de fábrica do aparelho.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
-                <h3>Manutenção Preventiva</h3>
-                <p>Revisão periódica para evitar falhas graves, otimizar a refrigeração e reduzir o consumo de eletricidade.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
-                <h3>Todos Tipos de Reparacão</h3>
-                <p>Carga de gás refrigerante, correção de vazamentos, substituição de capacitores, placas e componentes elétricos.</p>
+            <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <!-- Imagem de destaque -->
+                <img src="maercio 1.jpg" alt="Equipe técnica trabalhando em instalação de ar-condicionado" class="rounded-xl shadow-xl w-full max-w-md transition-transform duration-500 hover:scale-105">
             </div>
         </div>
     </section>
 
-    <!-- PASSO A PASSO DE ATENDIMENTO -->
-    <section class="process-section">
-        <div class="process-container">
-            <div class="section-header">
-                <h2>Como Funciona Nosso Atendimento</h2>
-                <p>Simplicidade e transparência do primeiro contato até a entrega do serviço.</p>
-            </div>
-
-            <div class="process-grid">
-                <div class="process-step">
-                    <span class="step-number">01</span>
-                    <h4>Contato via WhatsApp</h4>
-                    <p>Você nos envia uma mensagem informando a necessidade do seu aparelho.</p>
+    <!-- Seção Serviços -->
+    <section id="servicos" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12" data-aos="zoom-in" data-aos-duration="800">Nossos Serviços</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cartão de Serviço 1 -->
+                <div class="card-hover bg-gray-50 p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="flip-left" data-aos-duration="800" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Instalação</h3>
+                    <p class="text-gray-600">Instalação de diversos tipos de sistemas de ar-condicionado, garantindo eficiência energética e desempenho ideal.</p>
                 </div>
-                <div class="process-step">
-                    <span class="step-number">02</span>
-                    <h4>Orçamento Rápido</h4>
-                    <p>Avaliamos o problema e fornecemos um orçamento claro sem taxas escondidas.</p>
+                <!-- Cartão de Serviço 2 -->
+                <div class="card-hover bg-gray-50 p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="flip-left" data-aos-duration="800" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Manutenção Preventiva e Corretiva</h3>
+                    <p class="text-gray-600">Serviços regulares para manter seu equipamento em perfeito estado, prolongando sua vida útil e desempenho.</p>
                 </div>
-                <div class="process-step">
-                    <span class="step-number">03</span>
-                    <h4>Agendamento Flexível</h4>
-                    <p>Marcamos a visita técnica no melhor dia e horário para você.</p>
+                <!-- Cartão de Serviço 3 -->
+                <div class="card-hover bg-gray-50 p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="flip-left" data-aos-duration="800" data-aos-delay="300">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Higienização Profunda</h3>
+                    <p class="text-gray-600">Eliminação de bactérias, fungos e odores, proporcionando ar mais saudável e livre de impurezas.</p>
                 </div>
-                <div class="process-step">
-                    <span class="step-number">04</span>
-                    <h4>Execução com Garantia</h4>
-                    <p>Serviço realizado de forma limpa, segura e com garantia profissional.</p>
+                 <!-- Cartão de Serviço 4 -->
+                 <div class="card-hover bg-gray-50 p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="flip-right" data-aos-duration="800" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Infraestrutura de Tubulação</h3>
+                    <p class="text-gray-600">Planejamento e execução de infraestrutura para sistemas de refrigeração centralizados, com cálculo de metragem e materiais.</p>
+                </div>
+                 <!-- Cartão de Serviço 5 -->
+                 <div class="card-hover bg-gray-50 p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="flip-right" data-aos-duration="800" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Diagnóstico Técnico</h3>
+                    <p class="text-gray-600">Identificação precisa de problemas e fornecimento de soluções eficazes para restabelecer o funcionamento ideal.</p>
+                </div>
+                 <!-- Cartão de Serviço 6 -->
+                 <div class="card-hover bg-gray-50 p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="flip-right" data-aos-duration="800" data-aos-delay="300">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Assistência 24h</h3>
+                    <p class="text-gray-600">Suporte emergencial para resolver problemas de climatização a qualquer hora, garantindo conforto contínuo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
-    <section class="faq-section">
-        <div class="section-header">
-            <h2>Dúvidas Frequentes</h2>
-            <p>Respostas rápidas para as perguntas mais comuns.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                Com qual frequência devo higienizar meu ar condicionado?
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Para uso residencial, o recomendado é a cada 6 meses. Em ambientes comerciais ou com alto fluxo de pessoas, a recomendação é a cada 3 meses.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                Quais marcas de ar condicionado vocês atendem?
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Trabalhamos com todas as marcas do mercado (LG, Samsung, Midea, Gree, Carrier, Elgin, Springer, Fujitsu, Philco, entre outras) e em todas as capacidades (BTUs).
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                O serviço tem garantia?
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Sim! Todos os nossos serviços de instalação, manutenção e reparos acompanham garantia técnica.
+    <!-- Seção Sobre -->
+    <section id="sobre" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                    <!-- Imagem Sobre -->
+                    <img src="maercio.jpg" alt="Equipe qualificada da MCS Climatização" class="rounded-xl shadow-md w-full max-w-md mx-auto md:mx-0 transition-transform duration-500 hover:rotate-1">
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left" data-aos-duration="1000">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Por que escolher a MCS Climatização?</h2>
+                    <p class="text-gray-600 mb-4">
+                        Com anos de experiência no mercado de refrigeração e climatização, a MCS Climatização se destaca pela qualidade técnica, comprometimento com o cliente e soluções personalizadas.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Utilizamos equipamentos e materiais de primeira linha, e nossa equipe técnica é formada por profissionais certificados e constantemente atualizados com as melhores práticas do setor. Priorizamos a satisfação do cliente, oferecendo serviços eficientes, transparentes e com garantia de qualidade.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                        <li class="transform hover:translate-x-2 transition-transform duration-200">Equipe técnica especializada e experiente</li>
+                        <li class="transform hover:translate-x-2 transition-transform duration-200">Atendimento personalizado</li>
+                        <li class="transform hover:translate-x-2 transition-transform duration-200">Garantia nos serviços prestados</li>
+                        <li class="transform hover:translate-x-2 transition-transform duration-200">Compromisso com prazos e qualidade</li>
+                        <li class="transform hover:translate-x-2 transition-transform duration-200">Soluções sustentáveis e eficientes</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- BANNER FINAL DE CTA -->
-    <div class="cta-box">
-        <h2>Pronto para Deixar Seu Ambiente Climatizado?</h2>
-        <p>Fale direto com o especialista Maércio Cássio e solicite sua cotação sem compromisso.</p>
-        <a href="https://wa.me/5581984183865?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20MCS%20Climatiza%C3%A7%C3%A3o." class="btn-hero-primary" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp (81) 98418-3865
-        </a>
-    </div>
+    <!-- Seção Contato -->
+    <section id="contato" class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="zoom-in-up" data-aos-duration="800">Entre em Contato</h2>
+            <div class="flex flex-col md:flex-row gap-12">
+                <!-- Informações de Contato -->
+                <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                    <h3 class="text-xl font-semibold mb-4">Fale conosco diretamente:</h3>
+                    <p class="mb-2 flex items-start group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 group-hover:text-blue-200 transition-colors" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                        <a href="tel:+5581984183865" class="hover:text-blue-200 transition-colors">Telefone: (81) 98418-3865</a>
+                    </p>
+                    <p class="mb-2 flex items-start group">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 group-hover:text-blue-200 transition-colors" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd" />
+                        </svg>
+                        <a href="https://wa.me/5581984183865" target="_blank" class="hover:text-blue-200 transition-colors">WhatsApp: (81) 98418-3865</a>
+                    </p>
+                    <p class="mb-2 flex items-start group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 group-hover:text-blue-200 transition-colors" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                        <a href="mailto:contato@mcsclimatizacao.com.br" class="hover:text-blue-200 transition-colors">Email: contato@mcsclimatizacao.com.br</a>
+                    </p>
+                     <p class="mb-2 flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                         Endereço: Rua Lagoa Vermelha, 175, Iputinga, Recife - Pernambuco
+                    </p>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="brand-logo">
-                <div class="brand-icon">
-                    <i class="fa-solid fa-snowflake"></i>
+                    <!-- Mapa -->
+                    <div class="mt-6 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-500" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.080301599062!2d-34.90881972531211!3d-8.05874499423716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab18d953c5cd8b%3A0x7b0c9b1e9d5c1e9!2sRua%20Lagoa%20Vermelha%2C%20175%20-%20Iputinga%2C%20Recife%20-%20PE%2C%2050750-000!5e0!3m2!1spt-BR!2sbr!4v1703123456789!5m2!1spt-BR!2sbr" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
-                <div class="brand-text" style="text-align: left;">
-                    <h1>MCS <span>CLIMATIZAÇÃO</span></h1>
+
+                <!-- Formulário de Contato (envia para WhatsApp) -->
+                <div class="md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
+                    <h3 class="text-xl font-semibold mb-4">Fale Conosco pelo WhatsApp</h3>
+                    <form id="whatsapp-form">
+                        <div class="mb-4">
+                            <label for="nome" class="block text-sm font-medium mb-1">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-500 bg-white text-gray-800 transition-all duration-300 hover:border-blue-400">
+                        </div>
+                        <div class="mb-4">
+                            <label for="servico" class="block text-sm font-medium mb-1">Serviço de Interesse</label>
+                            <select id="servico" name="servico" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-500 bg-white text-gray-800 transition-all duration-300 hover:border-blue-400">
+                                <option value="">Selecione um serviço</option>
+                                <option value="instalacao">Instalação</option>
+                                <option value="manutencao">Manutenção</option>
+                                <option value="higienizacao">Higienização</option>
+                                <option value="tubulacao">Infraestrutura de Tubulação</option>
+                                <option value="diagnostico">Diagnóstico Técnico</option>
+                                <option value="assistencia">Assistência 24h</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="mensagem" class="block text-sm font-medium mb-1">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Descreva sua necessidade..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-500 bg-white text-gray-800 transition-all duration-300 hover:border-blue-400"></textarea>
+                        </div>
+                        <button type="submit" class="w-full cta-button bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md">
+                            Enviar para WhatsApp
+                        </button>
+                    </form>
                 </div>
             </div>
-            <p>Maércio Cássio - Refrigeração & Climatização Profissional<br>Contato: (81) 98418-3865</p>
-            <p>&copy; <span id="year"></span> MCS Climatização. Todos os direitos reservados.</p>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; <span id="currentYear"></span> MCS Climatização. Todos os direitos reservados.</p>
+            <p class="mt-2">CNPJ: XX.XXX.XXX/XXXX-XX | Rua Lagoa Vermelha, 175, Iputinga, Recife - Pernambuco</p>
         </div>
     </footer>
 
-    <!-- BOTÃO FLUTUANTE WHATSAPP -->
-    <a href="https://wa.me/5581984183865?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MCS%20Climatiza%C3%A7%C3%A3o." class="wa-float" target="_blank" title="Conversar no WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- JAVASCRIPT INTERATIVO -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Atualiza ano no rodapé
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Inicializa AOS
+        AOS.init({
+            offset: 120,
+            delay: 100,
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
 
-        // Lógica do FAQ (Accordion)
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', () => {
-                const parent = item.parentNode;
-                parent.classList.toggle('active');
+        // Script para alternar o menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Script para atualizar o ano no rodapé automaticamente
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Script para rolagem suave nos links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                  window.scrollTo({
+                    top: targetElement.offsetTop - 80, // Ajuste para compensar o header fixo
+                    behavior: 'smooth'
+                  });
+                  // Fecha o menu mobile se estiver aberto
+                  if (!mobileMenu.classList.contains('hidden')) {
+                      mobileMenu.classList.add('hidden');
+                  }
+                }
             });
         });
+        
+        // Efeito de header ao rolar
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg', 'bg-white/90');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-white/90');
+            }
+        });
+        
+        // Envio do formulário para WhatsApp
+        document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = encodeURIComponent(document.getElementById('nome').value);
+            const servico = encodeURIComponent(document.getElementById('servico').options[document.getElementById('servico').selectedIndex].text);
+            const mensagem = encodeURIComponent(document.getElementById('mensagem').value);
+            
+            const numeroWhatsApp = '5581984183865'; // Número sem formatação
+            const mensagemFinal = `Olá, sou ${nome}. Gostaria de solicitar informações sobre o serviço de *${servico}*.\n\n*Mensagem:* ${mensagem}`;
+            
+            const url = `https://wa.me/${numeroWhatsApp}?text=${mensagemFinal}`;
+            
+            window.open(url, '_blank');
+        });
     </script>
+
 </body>
+</html>
